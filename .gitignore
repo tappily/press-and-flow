@@ -10,6 +10,10 @@ lib-cov
 pids
 logs
 results
+report
+dist
+.idea
 
 npm-debug.log
 node_modules
+bower_components

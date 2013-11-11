@@ -1,0 +1,153 @@
+@import 'var';
+
+//mix-ins
+
+.flow-writing-init() when(@text-writing-direction = ltr) {
+  @flow-start: left;
+  @flow-end: right;
+}
+
+.flow-writing-init() when(@text-writing-direction = rtl) {
+  @flow-start: right;
+  @flow-end: left;
+}
+
+.flow {
+
+  &:after {
+    content: ' ';
+    display: block;
+    clear: both;
+    height: 0;
+  }
+}
+
+// flow scaling
+
+.flow-fill {
+  width: 100%;
+  height: 100%;
+}
+
+.flow-fit {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+// flow columns
+
+.flow-columns(@count: auto, @column-width: auto, @gap: 1em, @rule-color: transparent, @rule-style: none, @rule-width: 0) {
+  column-width: @column-width;
+  -moz-column-width: @column-width;
+  -webkit-column-width: @column-width;
+
+  column-count: @count;
+  -moz-column-count: @count;
+  -webkit-column-count: @count;
+
+  column-gap: @gap;
+  -moz-column-gap: @gap;
+  -webkit-column-gap : @gap;
+
+  column-rule-color: @rule-color;
+  -moz-column-rule-color: @rule-color;
+  -webkit-column-rule-color: @rule-color;
+
+  column-rule-style: @rule-style;
+  -moz-column-rule-style: @rule-style;
+  -webkit-column-rule-style: @rule-style;
+
+  column-rule-width: @rule-width;
+  -moz-column-rule-width: @rule-width;
+  -webkit-column-rule-width: @rule-width;
+}
+
+//flow side
+
+.flow-start {
+  .flow-writing-init();
+  float: @flow-start;
+}
+
+.flow-end {
+  .flow-writing-init();
+  float: @flow-end;
+}
+
+.flow-position-start(@pos: 0) when(@text-writing-direction = ltr) {
+  left: @pos;
+}
+
+.flow-position-start(@pos: 0) when(@text-writing-direction = rtl) {
+  right: @pos;
+}
+
+.flow-position-end(@pos: 0) when(@text-writing-direction = ltr) {
+  right: @pos;
+}
+
+.flow-position-end(@pos: 0) when(@text-writing-direction = rtl) {
+  left: @pos;
+}
+
+.flow-fixed-start {
+  position: fixed;
+}
+
+.flow-fixed-end {
+  position: fixed;
+}
+
+.flow-abs-start {
+  position: absolute;
+}
+
+.flow-abs-end {
+  position: absolute;
+}
+
+.flow-fixed-start(@pos:0) {
+  .flow-position-start(@pos);
+}
+
+.flow-abs-start(@pos:0) {
+  .flow-position-start(@pos);
+}
+
+.flow-fixed-end(@pos:0) {
+  .flow-position-end(@pos);
+}
+
+.flow-abs-end(@pos:0) {
+  .flow-position-end(@pos);
+}
+
+// flow break
+
+.flow-break-margin-start(@position:0) when(@text-writing-direction = ltr) {
+  margin-left: 0;
+}
+
+.flow-break-margin-start(@position:0) when(@text-writing-direction = rtl) {
+  margin-right: 0;
+}
+
+.flow-break-margin-end(@position:0) when(@text-writing-direction = ltr) {
+  margin-right: 0;
+}
+
+.flow-break-margin-end(@position:0) when(@text-writing-direction = rtl) {
+  margin-left: 0;
+}
+
+.flow-break-start {
+  .flow-break-margin-start();
+  .flow-writing-init();
+  clear: @flow-start;
+}
+
+.flow-break-end {
+  .flow-break-margin-end();
+  .flow-writing-init();
+  clear: @flow-end;
+}

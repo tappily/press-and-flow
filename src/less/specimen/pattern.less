@@ -1,0 +1,6 @@
+.pattern-dots(@size:10px, @color:black) {
+  background-color:inherit;
+  background-image: radial-gradient(@color 15%, transparent 16%), radial-gradient(@color 15%, transparent 16%);
+  background-size:@size @size;
+  background-position: 0 0, (@size * 1.5) (@size * 1.5);
+}

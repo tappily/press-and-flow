@@ -1,0 +1,28 @@
+{
+  "name": "press-and-flow",
+  "version": "0.0.0",
+  "homepage": "http://tappily.github.io/press-and-flow",
+  "authors": [
+    "tappily"
+  ],
+  "main": "src/less/main.less",
+  "keywords": [
+    "less",
+    "css",
+    "responsive",
+    "typography",
+    "layout"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "loopless": "~0.0.4",
+    "font-awesome": "~4.0.3"
+  }
+}

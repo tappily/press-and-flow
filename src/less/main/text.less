@@ -1,0 +1,69 @@
+@import 'var';
+
+// text cell
+
+.text-cell-scale(@factor) {
+  padding: (1ex * @factor) (1em * @factor);
+}
+
+.text-cell {
+  .text-cell-scale(1);
+}
+
+.text-cell-2x {
+  .text-cell-scale(2);
+}
+
+.text-cell-3x {
+  .text-cell-scale(3);
+}
+
+// text alley
+
+.text-alley-scale(@factor) {
+  margin-left: 1ex * @factor;
+  margin-right: 1ex * @factor;
+}
+
+.text-alley {
+  .text-alley-scale(1);
+}
+
+.text-alley-2x {
+  .text-alley-scale(2);
+}
+
+.text-alley-3x {
+  .text-alley-scale(3);
+}
+
+// text row
+
+.text-row-scale(@factor) {
+  margin-top: 1ex * @factor;
+  margin-bottom: 1ex * @factor;
+}
+
+.text-row {
+  .text-row-scale(1);
+}
+
+.text-row-2x {
+  .text-row-scale(2);
+}
+
+.text-row-3x {
+  .text-row-scale(3);
+}
+
+// text size
+
+.text-size {
+  font-size: 17px;
+  line-height: 26px;
+}
+
+.text-size-2x {
+  font-size: @text-2-size;
+  line-height: @text-2-height;
+}

@@ -1,0 +1,38 @@
+@import 'text';
+@import 'var';
+
+:root {
+  font-family: @text-root-family, @text-root-family-alt;
+  direction: @text-writing-direction;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+}
+
+header {
+  font-size: @text-1-size;
+  line-height: @text-1-height;
+  .text-row;
+
+  h1 {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 400;
+  }
+
+}
+
+nav {
+  font-family: @nav-family, @nav-family-alt;
+}
+
+figure {
+  -webkit-column-break-inside:avoid;
+  -moz-column-break-inside:avoid;
+  -o-column-break-inside:avoid;
+  -ms-column-break-inside:avoid;
+  column-break-inside:avoid;
+}

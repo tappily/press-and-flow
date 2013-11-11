@@ -1,0 +1,52 @@
+@import 'lib';
+
+.icon {
+
+  &:before {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+}
+
+.icon-2x {
+  &:before {
+    font-size: 2em;
+  }
+}
+.icon-3x {
+  &:before {
+    font-size: 3em;
+  }
+}
+.icon-4x {
+  &:before {
+    font-size: 4em;
+  }
+}
+.icon-5x {
+  &:before {
+    font-size: 5em;
+  }
+}
+
+.icon-columns {
+
+  &:before {
+    content: @fa-var-columns;
+  }
+
+}
+
+.icon-bookmark {
+
+  &:before {
+    content: @fa-var-bookmark-o;
+  }
+
+}

@@ -1,0 +1,186 @@
+@import '../main/text';
+@import '../main/flow';
+
+@import 'var';
+@import 'icon';
+@import 'sneak';
+
+.aside-indent() when(@text-writing-direction = ltr) {
+  border-left: 1em solid #cccccc;
+  color: darken(#cccccc, 50%);
+  .text-cell;
+}
+
+.aside-indent() when(@text-writing-direction = rtl) {
+  border-right: 1em solid #cccccc;
+  color: darken(#cccccc, 50%);
+  .text-cell;
+}
+
+article {
+
+  .text-size-2x;
+
+  aside {
+    .text-size;
+    .aside-indent();
+  }
+
+  h2 {
+    -webkit-column-break-before: always;
+    break-before: column;
+  }
+
+  figure {
+    .text-alley-2x;
+    .text-row;
+    .flow-break-start;
+    .flow-start;
+
+    img {
+      .flow-fit;
+    }
+  }
+
+  cite {
+    display: block;
+    font-style: normal;
+    .text-size;
+    .text-row;
+  }
+
+  q {
+    text-transform: uppercase;
+  }
+
+
+
+}
+
+.article {
+
+  &-menu {
+    .flow-fixed-end();
+    top: 0;
+    z-index: 1;
+    background-color: inherit;
+
+    & > ul {
+      .flow;
+      background-color: inherit;
+
+      & > li {
+
+        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.5);
+        -moz-box-shadow: 0 1px 1px rgba(0,0,0,.5);
+        box-shadow: 0 1px 1px rgba(0,0,0,.5);
+        background-color: inherit;
+
+        & > label {
+          display: block;
+          .text-cell;
+        }
+
+        ul,
+        & > label:hover,
+        & > input:checked ~ label {
+          background-color: #000000;
+          color: contrast(#000000);
+        }
+
+        ul {
+
+          .text-cell;
+          min-width: 100%;
+          display: none;
+
+          a {
+            text-transform: uppercase;
+            &:hover {
+              color: contrast(#000000);
+            }
+            &:visited {
+              color: contrast(#000000);
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+
+}
+
+label[for=page-display],
+label[for=page-bookmarks] {
+  display: block;
+
+  .icon;
+
+  &:before {
+    .text-alley;
+  }
+}
+
+label[for=page-display] {
+  .icon-columns;
+}
+
+label[for=page-bookmarks] {
+  .icon-bookmark;
+}
+
+input[name=pages],
+input[name=bookmarks] {
+  .sneak-input;
+}
+
+input[name=bookmarks]:checked ul {
+  display: none;
+}
+
+input[name=bookmarks]:checked ~ ul {
+  display: block;
+}
+
+input[name=pages]:checked {
+
+  & ~ .article-menu {
+
+    position: absolute;
+    .flow-abs-end;
+
+     & > ul {
+
+       & > li {
+
+         .flow-end;
+         -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.5);
+         -moz-box-shadow: 0 1px 0 rgba(0,0,0,.5);
+         box-shadow: 0 1px 0 rgba(0,0,0,.5);
+
+         ul {
+           .flow-abs-start;
+           top: 100%;
+         }
+
+       }
+     }
+  }
+
+  & ~ article {
+
+    @media screen and (max-width:((20em + 2em) * 2)) {
+
+      .text-size;
+
+    }
+
+    .flow-columns(auto, 20em, 2em);
+
+    height: 36em * (@text-2-height / @text-2-size * 1em);
+    overflow: auto;
+    width: 100%;
+  }
+}
