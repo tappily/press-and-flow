@@ -1586,10 +1586,10 @@ article q {
 .article-menu > ul > li ul a {
   text-transform: uppercase;
 }
+.article-menu > ul > li ul a:link,
+.article-menu > ul > li ul a:hover,
+.article-menu > ul > li ul a:visited,
 .article-menu > ul > li ul a:hover {
-  color: #ffffff;
-}
-.article-menu > ul > li ul a:visited {
   color: #ffffff;
 }
 label[for=page-display],
