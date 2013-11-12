@@ -7,3 +7,9 @@
 @text-1-height: 73px;
 @text-2-size: 21px;
 @text-2-height: 28px;
+@text-cell-x: 1em;
+@text-cell-y: 1ex;
+@grid-margin: @text-cell-x * -1;
+@grid-col-gap: .5%;
+@grid-col-count: 12;
+@grid-col-width: (100% - @grid-col-gap * (@grid-col-count - 1)) / @grid-col-count;

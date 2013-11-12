@@ -3,7 +3,7 @@
 // text cell
 
 .text-cell-scale(@factor) {
-  padding: (1ex * @factor) (1em * @factor);
+  padding: (@text-cell-y * @factor) (@text-cell-x * @factor);
 }
 
 .text-cell {
@@ -21,8 +21,8 @@
 // text alley
 
 .text-alley-scale(@factor) {
-  margin-left: 1ex * @factor;
-  margin-right: 1ex * @factor;
+  margin-left: @text-cell-x * .5 * @factor;
+  margin-right: @text-cell-x * .5 * @factor;
 }
 
 .text-alley {
@@ -40,8 +40,8 @@
 // text row
 
 .text-row-scale(@factor) {
-  margin-top: 1ex * @factor;
-  margin-bottom: 1ex * @factor;
+  margin-top: @text-cell-y * @factor;
+  margin-bottom: @text-cell-y * @factor;
 }
 
 .text-row {
