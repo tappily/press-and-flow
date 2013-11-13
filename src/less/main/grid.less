@@ -1,4 +1,5 @@
 @import 'lib';
+@import 'util';
 @import 'flow';
 @import 'var';
 
@@ -13,7 +14,9 @@
 
 .grid-col {
   .flow-start;
-  box-sizing: border-box;
+
+  .box-sizing(border-box);
+
   &:last-child {
     .flow-end;
   }
