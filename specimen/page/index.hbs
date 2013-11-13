@@ -15,6 +15,8 @@ grid:
     - [11,1]
     - [12]
     layouts:
+        col6:
+        - [2,2,2,2,2,2]
         col4:
         - [3,3,3,3]
         col3:
@@ -26,38 +28,3 @@ grid:
 {{#each grid.layouts}}
     {{> grid .}}
 {{/each}}
-
-<div class="grid">
-
-    <div class="grid-col grid-span-4 grid-col-br">
-        <div class="text-cell">4</div>
-
-        <div class="grid-col grid-span-2 grid-col-br">
-            <div class="text-cell">2</div>
-        </div>
-        <div class="grid-col grid-span-2">
-            <div class="text-cell">2</div>
-        </div>
-    </div>
-
-    <div class="grid-col grid-span-4">
-        <div class="text-cell">4</div>
-        <div class="grid-col grid-span-1 grid-col-br">
-            <div class="text-cell">1</div>
-        </div>
-        <div class="grid-col grid-span-1">
-            <div class="text-cell">1</div>
-        </div>
-        <div class="grid-col grid-span-1">
-            <div class="text-cell">1</div>
-        </div>
-        <div class="grid-col grid-span-1">
-            <div class="text-cell">1</div>
-        </div>
-    </div>
-
-    <div class="grid-col grid-span-4">
-        <div class="text-cell">4</div>
-    </div>
-
-</div>

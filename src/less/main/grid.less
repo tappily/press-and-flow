@@ -4,16 +4,6 @@
 
 .grid {
   .flow;
-  margin-left: @grid-margin;
-  margin-right: @grid-margin;
-}
-
-.grid-col-gap(@amount) when(@text-writing-direction = ltr) {
-  margin-left: @amount;
-}
-
-.grid-col-gap(@amount) when(@text-writing-direction = rtl) {
-  margin-right: @amount;
 }
 
 .grid-col-break() {
@@ -23,7 +13,10 @@
 
 .grid-col {
   .flow-start;
-  .grid-col-gap(@grid-col-gap);
+  box-sizing: border-box;
+  &:last-child {
+    .flow-end;
+  }
 }
 
 .grid-br {
@@ -32,42 +25,26 @@
 
 .grid-col-br {
   .grid-br;
-  .grid-col-gap(0);
+}
+
+.loop-mix-in(@selector, @index, @from, @to) when (@selector = ' .grid') {
+
+  &-span-@{index} {
+    @nested-col-width: 100% / @to;
+    width: @nested-col-width * @index;
+  }
+
 }
 
 .loop-mix-in(@selector, @index, @from, @to) when (@selector = '.grid') {
 
-  @gap: @grid-col-gap * @grid-col-count / @to;
-  @gap-sum: @gap * (@index - @from);
-
   &-span-@{index} {
-    width: ((100% - @gap-sum) / @to) * @index;
+    @grid-col-width: 100% / @to;
+    width: @grid-col-width * @index;
+
+    .loop(1, (@index - @from + 1), ' .grid', '-', none);
   }
 
 }
 
-.loop-mix-in(@selector, @index, @from, @to) when (@selector = '.grid-span') {
-
-  &-@{index} {
-    @gap-sum: @grid-col-gap * (@index - @from);
-    width: @grid-col-width * @index + @gap-sum;
-
-    .grid {
-
-      &-col {
-        .grid-col-gap(@grid-col-gap * (@grid-col-count / @index));
-      }
-
-      &-col-br {
-        .grid-col-gap(0);
-      }
-
-    }
-
-    .loop(1, (@index - @from + 1), '.grid', '-', none);
-
-  }
-
-}
-
-.loop(1, @grid-col-count, '.grid-span', '-', none);
+.loop(1, @grid-col-count, '.grid', '-', none);
