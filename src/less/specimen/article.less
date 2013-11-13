@@ -21,6 +21,10 @@ article {
 
   .text-size-2x;
 
+  @media screen and (max-width:@small-view-width) {
+    .text-size;
+  }
+
   aside {
     .text-size;
     .aside-indent();
@@ -61,6 +65,7 @@ article {
 
   &-menu {
     .flow-fixed-end();
+
     top: 0;
     z-index: 1;
     background-color: inherit;
@@ -76,10 +81,15 @@ article {
         box-shadow: 0 1px 1px rgba(0,0,0,.5);
         background-color: inherit;
 
+
+
         & > label {
           display: block;
           .text-cell;
+
         }
+
+
 
         ul,
         & > label:hover,
@@ -134,6 +144,7 @@ label[for=page-bookmarks] {
 input[name=pages],
 input[name=bookmarks] {
   .sneak-input;
+  .sneak-behind;
 }
 
 input[name=bookmarks]:checked ul {

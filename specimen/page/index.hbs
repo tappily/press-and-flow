@@ -1,30 +1,11 @@
 ---
-title: Press & Hold
-grid:
-    master:
-    - [1,11]
-    - [2,10]
-    - [3,9]
-    - [4,8]
-    - [5,7]
-    - [6,6]
-    - [7,5]
-    - [8,4]
-    - [9,3]
-    - [10,2]
-    - [11,1]
-    - [12]
-    layouts:
-        col6:
-        - [2,2,2,2,2,2]
-        col4:
-        - [3,3,3,3]
-        col3:
-        - [4,4,4]
-        col2:
-        - [6,6]
+title: Press & Index
 ---
-{{> grid grid.master}}
-{{#each grid.layouts}}
-    {{> grid .}}
-{{/each}}
+<nav class="channel">
+    <ul>{{#each pages}}
+        <li>{{#compare dest '!==' ../page.dest}}
+            <a href="{{relative ../../page.dest dest}}">{{data.title}}</a>
+        {{/compare}}</li>
+    {{/each}}
+    </ul>
+</nav>

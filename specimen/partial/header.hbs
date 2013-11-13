@@ -1,3 +1,9 @@
 <header>
-    <h1>{{title}}</h1>
+    <h1>
+        {{#compare basename '!==' 'index'}}
+            <a href="/">Press</a>
+        {{else}}
+            Press
+        {{/compare}}
+         &amp; {{capitalizeFirst basename}}</h1>
 </header>
