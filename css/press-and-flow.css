@@ -6,6 +6,7 @@
 body {
   min-height: 100%;
   position: relative;
+  margin: 0;
 }
 header {
   font-size: 64px;
@@ -34,10 +35,52 @@ body {
   line-height: 26px;
   padding: 2ex 2em;
 }
+body:after {
+  position: fixed;
+  content: '';
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -moz-box-shadow: 0 0 20em 0 rgba(255, 173, 5, 0.1) inset;
+  -webkit-box-shadow: 0 0 20em 0 rgba(255, 173, 5, 0.1) inset;
+  box-shadow: 0 0 20em 0 rgba(255, 173, 5, 0.1) inset;
+}
 @media screen and (max-width: 480px) {
   body {
     padding: 1ex 1em;
   }
+}
+header h1 a {
+  position: relative;
+}
+header h1 a:before {
+  opacity: 0;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+  -moz-box-shadow: 0 0 0 0 #ffad05;
+  -webkit-box-shadow: 0 0 0 0 #ffad05;
+  box-shadow: 0 0 0 0 #ffad05;
+  content: "";
+  display: block;
+  height: 3.5em;
+  width: 3.5em;
+  -webkit-border-radius: 1.75em;
+  -moz-border-radius: 1.75em;
+  border-radius: 1.75em;
+  position: absolute;
+  top: -1.5em;
+  left: 0;
+  z-index: -1;
+}
+header h1 a:hover:before {
+  opacity: 1;
+  -moz-box-shadow: 0 0 0 7em #ffad05;
+  -webkit-box-shadow: 0 0 0 7em #ffad05;
+  box-shadow: 0 0 0 7em #ffad05;
 }
 nav {
   font-weight: 600;
@@ -1810,7 +1853,7 @@ nav li {
   height: 0;
   width: 0;
 }
-.sneak-input :focus {
+.sneak-input:focus {
   outline-style: none;
 }
 article {
@@ -1940,8 +1983,8 @@ input[name=bookmarks] {
   position: absolute;
   z-index: -1;
 }
-input[name=pages] :focus,
-input[name=bookmarks] :focus {
+input[name=pages]:focus,
+input[name=bookmarks]:focus {
   outline-style: none;
 }
 input[name=bookmarks]:checked ul {
