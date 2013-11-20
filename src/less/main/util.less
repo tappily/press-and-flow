@@ -24,6 +24,13 @@
   -ms-transform:@value;
 }
 
+.transition(@value) {
+  -webkit-transition: @value;
+  -moz-transition: @value;
+  -o-transition: @value;
+  transition: @value;
+}
+
 .linear-gradient(@to:bottom; @stops) {
   background-image: -o-linear-gradient(@to, @stops);
   background-image: -moz-linear-gradient(to @to, @stops);
