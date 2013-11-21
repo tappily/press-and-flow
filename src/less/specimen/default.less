@@ -27,9 +27,17 @@ body {
   }
 
 }
+header h1 {
+  text-shadow: -1px 1px @default-body-fill;
+}
+
 
 header h1 a {
   position: relative;
+
+  &:hover {
+    text-shadow: -1px 1px rgb(255, 173, 5);
+  }
 
   &:before  {
     opacity: 0;
