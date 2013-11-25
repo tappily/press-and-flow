@@ -1,7 +1,7 @@
-{{#each .}}
+{{#each data}}
     <div class="grid">
     {{#each .}}
-        <div class="grid-col grid-span-{{.}}{{#lt @index 1}} grid-col-br{{/lt}}">
+        <div class="grid-col {{../../style}}-{{.}}{{#lt @index 1}} grid-col-br{{/lt}}">
             <div>{{.}}</div>
         </div>
     {{/each}}
