@@ -1,0 +1,204 @@
+.ornament() {
+  text-align: center;
+  display: block;
+}
+
+.ornament-scholar-title {
+  .ornament;
+
+  &:before,
+  &:after {
+    display: inline-block;
+    content: '';
+    width: 100%;
+  }
+
+  &:before {
+    border-top: .2em double;
+    .box-shadow(0 -.1em 0 rgb(0,0,0););
+    margin-bottom: .4em;
+  }
+
+  &:after {
+    margin-top: .4em;
+    border-bottom: .2em double;
+    .box-shadow(0 .1em 0 rgb(0,0,0););
+  }
+}
+
+.ornament-poem-title {
+  .ornament;
+
+  &:before,
+  &:after {
+    display: inline-block;
+    content: '~';
+    font-size: 2em;
+    width: 100%;
+    font-family: monospace;
+  }
+
+  &:before {
+    text-shadow: 0 -0.17em;
+  }
+  &:after {
+    text-shadow: 0 0.17em;
+  }
+}
+
+.ornament-comic-title {
+  .ornament;
+  .box-shadow(0 .15em 0 rgb(0,0,0) inset, 0 -.15em 0 rgb(0,0,0) inset;);
+  border-radius: 1.5em;
+  padding: 1.5em;
+
+}
+
+.ornament-threepenny-title {
+  .ornament;
+
+  &:before,
+  &:after {
+    display: inline-block;
+    width: 100%;
+    content: '\00b7\00b7\00b7';
+    font-size: 3em;
+    line-height: 1;
+  }
+}
+
+@ornament-banner-title-border-size: .1em;
+@ornament-banner-title-border-3d-size: @ornament-banner-title-border-size * 10;
+
+.ornament-banner-title {
+
+  .ornament;
+
+  position: relative;
+  border: @ornament-banner-title-border-size solid;
+  padding: .5em;
+  margin-top: @ornament-banner-title-border-3d-size;
+  margin-bottom: @ornament-banner-title-border-3d-size;
+
+  &:before,
+  &:after {
+    width: 0;
+    height: 0;
+    content:"";
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+  }
+
+  &:before {
+    left: 0;
+    bottom: 100%;
+    .transform(translateY(@ornament-banner-title-border-size * -1));
+    border-bottom: (@ornament-banner-title-border-size * 3) solid;
+    border-left: (@ornament-banner-title-border-3d-size * 2) solid transparent;
+  }
+
+  &:after {
+    right: 0;
+    top: 100%;
+    .transform(translateY(@ornament-banner-title-border-size));
+    border-top: (@ornament-banner-title-border-size * 3) solid;
+    border-right: (@ornament-banner-title-border-3d-size * 2) solid transparent;
+  }
+
+}
+
+.ornament-gent-title {
+
+  .ornament;
+
+  &:before,
+  &:after {
+    display: inline-block;
+    font-family: monospace;
+    width: 100%;
+  }
+
+  &:before {
+    content: '~~~';
+    text-indent: .2em;
+    letter-spacing: -1em;
+    font-size: 2em;
+    text-shadow: 0 -0.17em;
+  }
+
+  &:after {
+    display: block;
+    width: 0;
+    height: 0;
+    content:"";
+    margin: .5em auto;
+    border-top: (1em / 2) solid transparent;
+    border-right: 1em solid;
+    border-bottom: (1em / 2) solid transparent;
+    border-left: 1em solid;
+  }
+
+}
+
+.ornament-braces-title {
+  .ornament;
+
+  position: relative;
+
+  padding: 1em;
+
+  &:before,
+  &:after {
+    display: block;
+    content: '';
+    height: 100%;
+    width: 1em;
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+  }
+
+  &:before {
+    left: 0;
+    border-top: .5em double;
+    border-left: .5em double;
+    border-bottom: .5em double;
+  }
+
+  &:after {
+    right: 0;
+    border-top: .5em double;
+    border-bottom: .5em double;
+    border-right: .5em double;
+  }
+}
+
+.ornament-teeth-title {
+  .ornament;
+
+  &:before,
+  &:after {
+    width: 100%;
+    display: inline-block;
+    content: '+++';
+    letter-spacing: .35em;
+    font-family: monospace;
+  }
+}
+
+.ornament-victor-title {
+  .ornament;
+
+  &:before, &:after {
+    display: inline-block;
+    width: 100%;
+    content: "=v=v=v=v=v=";
+    letter-spacing: -.2em;
+    font-family: monospace;
+  }
+
+  &:after {
+    .transform(rotate(-180deg));
+  }
+}
