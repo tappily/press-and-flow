@@ -7,6 +7,14 @@
   .flow;
 }
 
+.grid-offset(@value) when(@text-writing-direction = ltr) {
+  margin-left: @value;
+}
+
+.grid-offset(@value) when(@text-writing-direction = rtl) {
+  margin-right: @value;
+}
+
 .grid-col-break() {
   .flow-writing-init();
   clear: @flow-start;
@@ -17,7 +25,7 @@
 
   .box-sizing(border-box);
 
-  &:last-child {
+  & ~ &:last-child:not(.grid-col-br) {
     .flow-end;
   }
 }
@@ -31,20 +39,28 @@
 }
 
 .loop-mix-in(@selector, @index, @from, @to) when (@selector = ' .grid') {
+  @nested-col-width: 100% / @to;
 
   &-span-@{index} {
-    @nested-col-width: 100% / @to;
     width: @nested-col-width * @index;
+  }
+
+  &-offset-@{index} {
+    .grid-offset(@nested-col-width * @index);
   }
 
 }
 
 .loop-mix-in(@selector, @index, @from, @to) when (@selector = '.grid') {
+  @grid-col-width: 100% / @to;
 
   &-span-@{index} {
-    @grid-col-width: 100% / @to;
     width: @grid-col-width * @index;
+    .loop(1, (@index - @from + 1), ' .grid', '-', none);
+  }
 
+  &-offset-@{index} {
+    .grid-offset(@grid-col-width * @index);
     .loop(1, (@index - @from + 1), ' .grid', '-', none);
   }
 
