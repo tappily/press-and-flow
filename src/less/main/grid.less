@@ -20,6 +20,11 @@
   clear: @flow-start;
 }
 
+.grid-col-span-reset {
+  width: 100%;
+  float: none;
+}
+
 .grid-col {
   .flow-start;
 
@@ -45,6 +50,7 @@
     width: @nested-col-width * @index;
   }
 
+
   &-offset-@{index} {
     .grid-offset(@nested-col-width * @index);
   }
@@ -56,6 +62,16 @@
 
   &-span-@{index} {
     width: @grid-col-width * @index;
+
+    @media screen and (max-width:(1024px - 1024px * (unit(@grid-col-width) * @index / 100))) {
+      .grid-col-span-reset;
+
+      & ~ .grid-col {
+        .grid-col-span-reset;
+      }
+
+    }
+
     .loop(1, (@index - @from + 1), ' .grid', '-', none);
   }
 

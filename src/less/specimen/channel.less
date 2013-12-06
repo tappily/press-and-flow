@@ -1,5 +1,6 @@
 @import "../main/text";
 @import "../main/grid";
+@import "../main/util";
 @import "var";
 
 .grid-col {
@@ -9,4 +10,47 @@
 
 .grid {
   margin: 0 @text-cell-x * -1;
+}
+
+.channel {
+  a {
+    position: relative;
+    text-align: center;
+    font-size: 5em;
+    line-height: 2;
+    padding: 12px;
+    margin-bottom: 6px;
+    background-color: rgb(255,255,255);
+    display: inline-block;
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      .transform-origin(top right);
+      .skew-adjusted-size-init(1deg * 2, 100%);
+      height: 100% - @skew-adjusted-size; // 2% is roughly the shadow size
+      width: 50%;
+      background-color: rgba(0,0,0,.2);
+      box-shadow: 0 .1em .1em rgba(0,0,0,.5);
+      .transform(skewY(-1deg));
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      .transform-origin(top left);
+      .skew-adjusted-size-init(1deg * 2, 100%);
+      height: 100% - @skew-adjusted-size; // 2% is roughly the shadow size
+      width: 50%;
+      background-color: rgba(0,0,0,.5);
+      box-shadow: 0 .1em .1em rgba(0,0,0,.5);
+      .transform(skewY(1deg));
+    }
+  }
 }
