@@ -29,13 +29,13 @@
       z-index: -1;
       top: 0;
       left: 0;
-      .transform-origin(top right);
+      transform-origin: top right;
       .skew-adjusted-size-init(1deg * 2, 100%);
       height: 100% - @skew-adjusted-size; // 2% is roughly the shadow size
       width: 50%;
       background-color: rgba(0,0,0,.2);
       box-shadow: 0 .1em .1em rgba(0,0,0,.5);
-      .transform(skewY(-1deg));
+      transform: skewY(-1deg);
     }
 
     &:after {
@@ -44,13 +44,13 @@
       z-index: -1;
       top: 0;
       right: 0;
-      .transform-origin(top left);
+      transform-origin: top left;
       .skew-adjusted-size-init(1deg * 2, 100%);
       height: 100% - @skew-adjusted-size; // 2% is roughly the shadow size
       width: 50%;
       background-color: rgba(0,0,0,.5);
       box-shadow: 0 .1em .1em rgba(0,0,0,.5);
-      .transform(skewY(1deg));
+      transform: skewY(1deg);
     }
   }
 }

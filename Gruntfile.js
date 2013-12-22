@@ -27,6 +27,15 @@ module.exports = function(grunt) {
                 dest: 'dist/specimen/'
             }
         },
+        autoprefixer: {
+            options: {},
+            build: {
+                src: ['dist/less/main.less', 'dist/less/main/*.less']
+            },
+            specimen: {
+                src: 'dist/specimen/css/<%=pkg.name%>.css'
+            }
+        },
         clean: {
             dist: ['dist']
         },
@@ -114,7 +123,7 @@ module.exports = function(grunt) {
             },
             less: {
                 files: 'src/less/**/*.less',
-                tasks: ['lesslint:specimen', 'less:specimen']
+                tasks: ['lesslint:specimen', 'less:specimen', 'autoprefixer:specimen']
             },
             livereload: {
                 options: {
@@ -137,7 +146,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', ['clean', 'test', 'copy:main']);
 
-    grunt.registerTask('build:specimen', ['clean', 'jshint', 'lesslint:specimen', 'copy:specimen', 'less:specimen', 'assemble']);
+    grunt.registerTask('build:specimen', ['clean', 'jshint', 'lesslint:specimen', 'copy:specimen', 'less:specimen',
+        'autoprefixer:specimen', 'assemble']);
 
     grunt.registerTask('deploy:specimen', ['build:specimen', 'gh-pages']);
 

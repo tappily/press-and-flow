@@ -15,14 +15,14 @@
 
   &:before {
     border-top: .2em double;
-    .box-shadow(0 -.1em 0 rgb(0,0,0););
+    box-shadow: 0 -.1em 0 rgb(0,0,0);
     margin-bottom: .4em;
   }
 
   &:after {
     margin-top: .4em;
     border-bottom: .2em double;
-    .box-shadow(0 .1em 0 rgb(0,0,0););
+    box-shadow: 0 .1em 0 rgb(0,0,0);
   }
 }
 
@@ -48,7 +48,7 @@
 
 .ornament-comic-title {
   .ornament;
-  .box-shadow(0 .15em 0 rgb(0,0,0) inset, 0 -.15em 0 rgb(0,0,0) inset;);
+  box-shadow: 0 .15em 0 rgb(0,0,0) inset, 0 -.15em 0 rgb(0,0,0) inset;
   border-radius: 1.5em;
   padding: 1.5em;
 
@@ -93,7 +93,7 @@
   &:before {
     left: 0;
     bottom: 100%;
-    .transform(translateY(@ornament-banner-title-border-size * -1));
+    transform: translateY(@ornament-banner-title-border-size * -1);
     border-bottom: (@ornament-banner-title-border-size * 3) solid;
     border-left: (@ornament-banner-title-border-3d-size * 2) solid transparent;
   }
@@ -101,7 +101,7 @@
   &:after {
     right: 0;
     top: 100%;
-    .transform(translateY(@ornament-banner-title-border-size));
+    transform: translateY(@ornament-banner-title-border-size);
     border-top: (@ornament-banner-title-border-size * 3) solid;
     border-right: (@ornament-banner-title-border-3d-size * 2) solid transparent;
   }
@@ -199,6 +199,6 @@
   }
 
   &:after {
-    .transform(rotate(-180deg));
+    transform: rotate(-180deg);
   }
 }
